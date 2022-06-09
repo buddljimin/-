@@ -1,0 +1,50 @@
+{% extends 'base_mypage.html' %}
+{% block content %}
+{% include 'navbar_profile.html' %}
+<div id="main-header">
+    <!--본문-->
+    <div id="content_pro">
+        <!--본문 중앙 영역-->
+            <form method="post" class="post-form" enctype = "multipart/form-data">
+                {{ form.csrf_token }}
+                {% include "form_errors.html" %}
+                <div class="box">
+                    <div class="top">
+                        <div class="top_left">
+                            <div class="form-group">
+                                <label for="nickname">닉네임</label>
+                            </div>
+                        </div>
+                        <div class="top_right">
+                                <input type="text" class="form-control" name="nickname" id="nickname" value="{{ form.nickname.data or '' }}">
+                        </div>
+                    </div>
+                    <div class="middle">
+                        <div class="middle_left">
+                            <p>사진</p>
+                        </div>
+                        <div class="middle_right">
+                            <div id="image_profile">
+                                <p>프로필 사진을 업로드 해주세요</p>
+                                <input type = "file" name = "image_file" id="image_file"  accept="image/*"
+                                    value="{{ form.image_file.data or '' }}">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="down">
+                        <div class="down_left">
+                            <p>자기소개</p>
+                        </div>
+                        <div class="form-group, down_right">
+                            <input type="text" class="form-control" name="word" id="word" value="{{ form.word.data or '' }}">
+                        </div>
+
+                    </div>
+                </div>
+                <button id="re" type="submit" style="margin-left:450px;width: 300px;height: 100px;font-size: large;border-radius: 20px;"><h3>수정</h3></button>
+            </form>
+    </div>
+    <!--푸터-->
+
+</div>
+{% endblock %}

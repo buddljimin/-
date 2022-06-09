@@ -1,0 +1,15 @@
+<header class="header">
+    <a id="title_all" href="{{url_for('blog._list') }}" style="margin-top: 10px; margin-left:10px;"><img src="/static/images/강낭콩.png" style="width: 50px; height:50px;"><h1 style="display:inline;">강낭콩</h1></a>
+    <div class="title">
+        <h3 style="margin-top:20px;">모든 게시글</h3>
+    </div>
+    <div class="menu">
+        {% if g.user %}
+        <a href="{{ url_for('mypage._list') }}">{{ g.user.username }}님의 마이페이지        </a>
+        <a href="{{ url_for('auth.logout') }}">(로그아웃)</a>
+        {% else %}
+        <a class="nav-link" id="all_nav_link" href="{{ url_for('auth.signup') }}">계정생성</a>
+        <a class="nav-link" id="all_nav_link" href="{{ url_for('auth.login') }}">로그인</a>
+        {% endif %}
+    </div>
+</header>
